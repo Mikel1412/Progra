@@ -22,5 +22,6 @@ public class Ej03 {
 		}catch(InputMismatchException e) {
 			System.out.println("Valor introducido incorrecto-");
 		}
+		leer.close();
 	}
 }

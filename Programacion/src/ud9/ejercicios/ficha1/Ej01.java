@@ -20,5 +20,6 @@ public class Ej01 {
 		}catch(InputMismatchException e){				//catch es donde se gestiona el error en el codigo
 			System.out.println("El caracter introducido no es correcto");
 		}
+		leer.close();
 	}
 }

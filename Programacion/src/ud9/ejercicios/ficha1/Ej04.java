@@ -31,5 +31,6 @@ public class Ej04 {
 		}catch(ArrayIndexOutOfBoundsException e) {
 			System.err.println("Esa posicion no existe");
 		}
-	}
+		leer.close();
+		}
 }

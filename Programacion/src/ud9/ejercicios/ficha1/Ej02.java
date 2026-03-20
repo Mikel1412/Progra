@@ -24,5 +24,6 @@ public class Ej02 {
 		}catch (ArithmeticException e){
 			System.out.println("Los numeros no son divisibles entre ellos");
 		}
+		leer.close();
 	}
 }
