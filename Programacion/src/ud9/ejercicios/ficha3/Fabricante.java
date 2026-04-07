@@ -13,7 +13,7 @@ public class Fabricante {
 	
 	//METODOS
 	
-	public int mostrarNumFabricantes() {
+	public static int mostrarNumFabricantes() {
 		return getnFabricantes();
 	}
 	

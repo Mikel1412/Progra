@@ -34,6 +34,7 @@ public class Smartphone extends Dispositivo {
 		} else {
 			throw new IOException("WalletException");
 		}
+		
 	}
 
 	// GETTERS Y SETTERS
@@ -44,5 +45,7 @@ public class Smartphone extends Dispositivo {
 	public void setBateria(int bateria) {
 		this.bateria = bateria;
 	}
+	
+	
 
 }
