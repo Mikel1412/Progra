@@ -19,8 +19,6 @@ public class GestionDispositivos {
 		System.out.println("Número de fabricantes: " + Fabricante.mostrarNumFabricantes());
 
 		System.out.println("\n--- DATOS DE LOS DISPOSITIVOS ---");
-		for (Dispositivo d : dispositivos) {
-			System.out.println(d);
-		}
+		
 	}
 }
