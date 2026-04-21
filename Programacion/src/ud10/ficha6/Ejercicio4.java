@@ -13,5 +13,8 @@ public class Ejercicio4 {
 		personas.put(25, "Ana");
 		personas.put(30, "Luis");
 		personas.put(20, "Pedro");
+		
+		System.out.println(edades);
+		System.out.println(personas);
 	}
 }
