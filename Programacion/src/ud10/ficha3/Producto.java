@@ -1,22 +1,36 @@
 package ud10.ficha3;
 
-public class Producto {
-	//ATRIBUTOS
-	private int codigo, stock;
-	private String nombre,tipo;
-	private double precio;
-	
-	//CONTRUCTOR
-	public Producto(int codigo, int stock, String nombre, String tipo, double precio) {
-		this.codigo=codigo;
-		this.stock=stock;
-		this.nombre=nombre;
-		this.tipo=tipo;
-		this.precio=precio;
-	}
-	
-	//GETTERS Y SETTERS
+import java.util.Objects;
 
+public class Producto {
+	// ATRIBUTOS
+	private int codigo, stock;
+	private String nombre, tipo;
+	private double precio;
+
+	// CONTRUCTOR
+	public Producto(int codigo, int stock, String nombre, String tipo, double precio) {
+		this.codigo = codigo;
+		this.stock = stock;
+		this.nombre = nombre;
+		this.tipo = tipo;
+		this.precio = precio;
+	}
+
+	//METODOS
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Producto other = (Producto) obj;
+		return codigo == other.codigo && Objects.equals(nombre, other.nombre);
+	}
+
+	// GETTERS Y SETTERS
 	public int getCodigo() {
 		return codigo;
 	}
@@ -56,6 +70,5 @@ public class Producto {
 	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
-	
-	
+
 }

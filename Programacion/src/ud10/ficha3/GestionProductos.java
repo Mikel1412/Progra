@@ -3,6 +3,7 @@ package ud10.ficha3;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 
 public class GestionProductos {
 	private List<Producto> listaProductos;
@@ -12,6 +13,8 @@ public class GestionProductos {
 		listaProductos = new ArrayList<Producto>();
 	}
 
+	//METODOS
+	
 	public void agragarProducto(Producto producto) {
 		listaProductos.add(producto);
 	}
@@ -48,8 +51,41 @@ public class GestionProductos {
 
 		return productosTipo;
 	}
-	
-	
+
+	public int tamanio() {
+		return listaProductos.size();
+	}
+
+	public void agregarSinDuplicados(int codigo, Producto producto) {
+		Iterator<Producto> it = listaProductos.iterator();
+		boolean duplicado = false;
+		while (it.hasNext()) {
+			if (it.next().getCodigo() == codigo) {
+				duplicado = true;
+			}
+		}
+
+		if (!duplicado) {
+			listaProductos.add(producto);
+		}
+	}
+
+	public void aumentarPrecio(String tipo, int porcentaje) {
+		for (Producto p : listaProductos) {
+			if (p.getTipo().equals(tipo)) {
+				p.setPrecio(p.getPrecio() * (1 + porcentaje / 100));
+			}
+		}
+	}
+
+	public void eliminarSinStock() {
+		Iterator<Producto> it = listaProductos.iterator();
+		while (it.hasNext()) {
+			if (it.next().getStock() == 0) {
+				it.remove();
+			}
+		}
+	}
 
 	// GETTERS Y SETTERS
 	public List<Producto> getListaProductos() {
