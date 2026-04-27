@@ -43,7 +43,11 @@ public class Arbol extends Planta {
 		}
 	}
 	
-	
+	@Override
+	public void mostrarInformacion() {
+		super.mostrarInformacion();
+        System.out.println("Tipo de hoja: " + tipoHoja);
+	}
 
 	// GETTERS Y SETTERS
 

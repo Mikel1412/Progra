@@ -1,34 +1,52 @@
 package ud10.ficha9;
 
-public class Flor extends Planta{
+public class Flor extends Planta {
 	private static final int MAX_AGUA = 50;
 	private String color;
-	
-	//Constructor
-	public Flor(String color ,String nombre, int altura, boolean necesitaAgua) {
+
+	// Constructor
+	public Flor(String color, String nombre, int altura, boolean necesitaAgua) {
 		super(nombre, altura, necesitaAgua, MAX_AGUA);
-		this.color=color;
+		this.color = color;
 	}
 
-
 	public void crecer() {
-		double crecimiento = MAX_AGUA*0.1;
-		this.setAltura(getAltura()+crecimiento);
+		double crecimiento = MAX_AGUA * 0.1;
+		this.setAltura(getAltura() + crecimiento);
 		this.setNecesitaAgua(true);
 		System.out.println("La flor " + getIDPlanta() + " ha crecido " + crecimiento);
 	}
-	
 
 	public void regar(int cantidadAgua) throws RiegoExcesivoException {
-		if(!isNecesitaAgua()) {
+		if (!isNecesitaAgua()) {
 			throw new RiegoExcesivoException("La planta no necesita agua en este momento");
-		}else {
-			if(cantidadAgua>MAX_AGUA) {
+		} else {
+			if (cantidadAgua > MAX_AGUA) {
 				throw new RiegoExcesivoException("Cantidad de agua excesiva para esta planta");
 			} else {
 				this.setNecesitaAgua(true);
 			}
 		}
 	}
-	
+
+	@Override
+	public void mostrarInformacion() {
+		super.mostrarInformacion(); 
+		System.out.println("Color: " + color);
+	}
+
+	// GETTERS Y SETTERS
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public static int getMaxAgua() {
+		return MAX_AGUA;
+	}
+
 }

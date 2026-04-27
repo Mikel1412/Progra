@@ -30,9 +30,6 @@ public abstract class Planta{
 		}
 	}
 	
-	
-	//Lo que hacemos aqui es que la constante MAX_AGUA de arbol y flor la cojemos por
-	//parametro en el constructor y usamos esa variable para que sepamos el maximo de agua
 	public abstract void regar(int cantidadAgua) throws RiegoExcesivoException;
 	
 	public abstract void crecer();
@@ -49,15 +46,14 @@ public abstract class Planta{
 		return IDPlanta == other.IDPlanta && Objects.equals(nombre, other.nombre);
 	}
 	
-	public String mostrarInformacion() {
+	public void mostrarInformacion() {
 		String agua;
 		if(necesitaAgua) {
 			agua="Si";
 		}else {
 			agua="No";
 		}
-		return "Planta:" + nombre + "| Altura:" + altura + "| Necesita agua="
-				+ agua + "ID: " + IDPlanta ;
+		System.out.println( "Planta:" + nombre + "| Altura:" + altura + "| Necesita agua=" + agua + "| ID: " + IDPlanta);
 	}
 	
 	public int totalPlantas() {

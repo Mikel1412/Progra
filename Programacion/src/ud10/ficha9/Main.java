@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Scanner;
 
 public class Main {
 	public static void main(String[] args) throws RiegoExcesivoException {
@@ -50,12 +51,14 @@ public class Main {
 		Iterator<Planta> it = listaPlantas.iterator();
 
 		while (it.hasNext()) {
-			if (!it.next().isNecesitaAgua()) {
+			if (it.next().isNecesitaAgua()) {
 				it.remove();
 			}
 		}
 
-		System.out.println(listaPlantas);
+		for (Planta p : listaPlantas) {
+		    p.mostrarInformacion();
+		}
 
 		Map<Integer, Planta> mapaPlantas = new HashMap<>();
 
@@ -66,16 +69,37 @@ public class Main {
 		mapaPlantas.put(planta5.getIDPlanta(), planta5);
 		mapaPlantas.put(planta6.getIDPlanta(), planta6);
 
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Introduce un ID para buscar una planta");
+
+		int buscarIDPlanta = sc.nextInt();
+
 		for (Entry<Integer, Planta> p : mapaPlantas.entrySet()) {
-			if(p.getKey()==2) {
+			if (p.getValue().getIDPlanta() == buscarIDPlanta) {
 				p.getValue().mostrarInformacion();
 			}
 		}
+
+		System.out.println("Introduce un ID para eliminar una planta");
+
+		buscarIDPlanta = sc.nextInt();
+
+		Iterator<Entry<Integer, Planta>> itMapa = mapaPlantas.entrySet().iterator();
+
+		while (itMapa.hasNext()) {
+		    Entry<Integer, Planta> p = itMapa.next();
+		    if (p.getKey() == buscarIDPlanta) {
+		        itMapa.remove();
+		    }
+		}
 		
-		for (Entry<Integer, Planta> p : mapaPlantas.entrySet()) {
-			if(p.getKey()==5) {
-				p.;
-			}
+		sc.close();
+
+		for (Map.Entry<Integer, Planta> p : mapaPlantas.entrySet()) {
+		    System.out.println("Planta: " + p.getValue().getNombre());
+		    
+		    System.out.println();  
 		}
 	}
 }
